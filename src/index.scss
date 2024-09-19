@@ -1,0 +1,33 @@
+// google font
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+// Global variables
+$red: #f64a4a;
+$orange: #fb7c58;
+$yellow: #f8cd65;
+$neon-green: #a4ffaf;
+$almost-white: #e6e5ea;
+$grey: #817d92;
+$dark-grey: #24232c;
+$very-dark-grey: #18171f;
+$large: 2rem;
+$medium: 1.5rem;
+$normal: 1.12rem;
+
+.heading-large {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: $large;
+}
+
+.heading-medium {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: $medium;
+}
+
+.normal-text {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: $normal;
+}
