@@ -1,0 +1,7 @@
+@use "./../../variables" as vars;
+
+.settingsContainer {
+  background-color: vars.$dark-grey;
+  margin-top: 1em;
+  padding: 1em;
+}

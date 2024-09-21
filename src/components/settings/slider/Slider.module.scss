@@ -1,0 +1,35 @@
+@use "./../../../variables" as vars;
+
+.sliderHeadingAndValue {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .heading {
+    font-size: 1rem;
+    color: vars.$almost-white;
+  }
+
+  .value {
+    color: vars.$neon-green;
+  }
+}
+
+.slider {
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: vars.$neon-green;
+  height: 8px;
+  width: 100%;
+  margin-top: 1.12em;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 28px;
+    height: 28px;
+    background: vars.$almost-white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
