@@ -1,0 +1,6 @@
+@use "./../../variables" as vars;
+
+.heading {
+  color: vars.$grey;
+  margin-bottom: 1em;
+}
