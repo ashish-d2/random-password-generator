@@ -2,6 +2,8 @@ import styles from "./Settings.module.scss";
 
 import Slider from "./slider/Slider";
 import Rules from "./rules/Rules";
+import PasswordStrrength from "./passwordStrength/PasswordStrength";
+import GeneratePassword from "./generatePassword/GeneratePassword";
 
 const settings = [
   {
@@ -29,6 +31,8 @@ export default function Settings() {
           <Rules rule={setting} key={setting.id} />
         ))}
       </div>
+      <PasswordStrrength />
+      <GeneratePassword />
     </div>
   );
 }
