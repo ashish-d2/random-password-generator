@@ -1,0 +1,31 @@
+@use "./../../../variables" as vars;
+
+.setting {
+  display: flex;
+  gap: 1.25em;
+}
+
+.input {
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  border: 2px solid vars.$almost-white;
+  cursor: pointer;
+
+  &:hover {
+    border-color: vars.$neon-green;
+  }
+
+  &:checked {
+    border-color: vars.$neon-green;
+    background-color: vars.$neon-green;
+    background-image: url("./../../../assets/images/icon-check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.label {
+  cursor: pointer;
+  margin-bottom: 1em;
+}
