@@ -1,11 +1,11 @@
-import copyIcon from "./../../assets/images/icon-copy.svg";
 import styles from "./Display.module.scss";
+import { ReactComponent as CopyIcon } from "./../../assets/images/icon-copy.svg";
 
 export default function Display() {
   return (
     <div className={styles.displayContainer}>
       <p className={`heading-medium ${styles.empty}`}></p>
-      <img src={copyIcon} alt="copy-icon" className={styles.copyIcon} />
+      <CopyIcon className={styles.copyIcon} />
     </div>
   );
 }

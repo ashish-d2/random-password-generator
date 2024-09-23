@@ -19,4 +19,8 @@
 
 .copyIcon {
   cursor: pointer;
+
+  &:hover {
+    fill: vars.$almost-white;
+  }
 }
