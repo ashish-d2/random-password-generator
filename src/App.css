@@ -1,4 +1,12 @@
+.App {
+  display: grid;
+  place-items: center;
+  margin: 4em 0;
+}
+
 main {
-  max-width: 343px;
+  width: 100%;
+  min-width: 343px;
+  max-width: 540px;
   color: white;
 }

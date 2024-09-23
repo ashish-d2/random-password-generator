@@ -3,4 +3,6 @@
 .heading {
   color: vars.$grey;
   margin-bottom: 1em;
+  display: grid;
+  place-items: center;
 }
