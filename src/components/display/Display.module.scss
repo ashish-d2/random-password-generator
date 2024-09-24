@@ -24,3 +24,16 @@
     fill: vars.$almost-white;
   }
 }
+
+.copyContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+
+  .copied {
+    text-transform: uppercase;
+    color: vars.$neon-green;
+    font-weight: 700;
+  }
+}
