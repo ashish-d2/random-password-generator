@@ -19,18 +19,39 @@
   appearance: none;
   border: none;
   outline: none;
-  background-color: vars.$neon-green;
   height: 8px;
   width: 100%;
   margin-top: 1.12em;
   margin-bottom: 2.62em;
 
+  &::-webkit-slider-runnable-track {
+    background-color: transparent;
+    height: 8px;
+    border: none;
+    box-shadow: none;
+  }
+
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
+    appearance: none;
     width: 28px;
     height: 28px;
-    background: vars.$almost-white;
+    background-color: vars.$almost-white;
     border-radius: 50%;
     cursor: pointer;
+    margin-top: -10px;
+
+    &:hover {
+      border: 2px solid vars.$neon-green;
+      background-color: vars.$very-dark-grey;
+    }
+
+    &::-webkit-slider-runnable-track {
+      background: #ddd;
+      border-radius: 5px;
+      height: 8px;
+      border: none;
+      box-shadow: none; // Remove shadow
+    }
   }
 }

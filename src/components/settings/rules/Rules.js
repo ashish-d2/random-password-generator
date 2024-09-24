@@ -5,7 +5,7 @@ export default function Rules(props) {
   return (
     <div className={styles.setting}>
       <input type="checkbox" id={props.rule.name} className={styles.input} />
-      <label for={props.rule.name} className={styles.label}>
+      <label htmlFor={props.rule.name} className={styles.label}>
         {props.rule.setting}
       </label>
     </div>
