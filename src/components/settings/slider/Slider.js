@@ -25,7 +25,7 @@ export default function Slider() {
         style={{
           background: `linear-gradient(to right, #A4FFAF ${
             sliderValue * 5
-          }%, #ddd ${sliderValue * 5}%)`,
+          }%, #18171F ${sliderValue * 5}%)`,
         }}
       />
     </div>
