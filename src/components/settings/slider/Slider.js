@@ -1,13 +1,6 @@
-import { useState } from "react";
 import styles from "./Slider.module.scss";
 
-export default function Slider() {
-  const [sliderValue, setSliderValue] = useState(0);
-
-  const handleSliderValueChange = function (event) {
-    setSliderValue(event.target.value);
-  };
-
+export default function Slider({ sliderValue, onSliderValueChange }) {
   return (
     <div className={styles.sliderContainer}>
       <div className={styles.sliderHeadingAndValue}>
@@ -20,7 +13,7 @@ export default function Slider() {
         max="20"
         value={sliderValue}
         step="1"
-        onChange={handleSliderValueChange}
+        onChange={(event) => onSliderValueChange(event.target.value)}
         className={styles.slider}
         style={{
           background: `linear-gradient(to right, #A4FFAF ${

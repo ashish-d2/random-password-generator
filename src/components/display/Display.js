@@ -1,8 +1,10 @@
 import styles from "./Display.module.scss";
 import { ReactComponent as CopyIcon } from "./../../assets/images/icon-copy.svg";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import PasswordContext from "../../context/PasswordContext";
 
 export default function Display() {
+  const { password } = useContext(PasswordContext);
   const [copyBtnActive, setCopyBtnActive] = useState(false);
 
   const handleCopyBtnClick = function () {
@@ -11,7 +13,11 @@ export default function Display() {
 
   return (
     <div className={styles.displayContainer}>
-      <p className={`heading-medium ${styles.empty}`}></p>
+      {password.length === "" ? (
+        <p className={`heading-medium ${styles.empty}`}></p>
+      ) : (
+        <p className="heading-medium">{password}</p>
+      )}
       <div className={styles.copyContainer}>
         {copyBtnActive ? <p className={styles.copied}>Copied</p> : ""}
 
