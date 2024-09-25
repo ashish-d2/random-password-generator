@@ -4,12 +4,30 @@ import { useContext } from "react";
 import PasswordContext from "../../../context/PasswordContext";
 
 export default function GeneratePasswordBtn() {
-  const { generatePassword } = useContext(PasswordContext);
+  const {
+    generatePassword,
+    upperCaseActive,
+    lowerCaseActive,
+    numberActive,
+    symbolActive,
+  } = useContext(PasswordContext);
+
+  const handlePasswordGenerateBtn = function () {
+    if (
+      !upperCaseActive &&
+      !lowerCaseActive &&
+      !numberActive &&
+      !symbolActive
+    ) {
+      return;
+    }
+    generatePassword();
+  };
 
   return (
     <button
       className={`normal-text ${styles.btn}`}
-      onClick={() => generatePassword()}
+      onClick={handlePasswordGenerateBtn}
     >
       Generate
       <ArrowIcon className={styles.arrowIcon} />

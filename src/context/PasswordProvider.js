@@ -33,6 +33,13 @@ export default function PasswordProvider({ children }) {
     setPasswordLength(sliderValue);
   };
 
+  const shuffelPassword = function (p) {
+    return p
+      .split("")
+      .sort(() => 0.5 - Math.random())
+      .join("");
+  };
+
   const generatePassword = function () {
     const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowercase = "abcdefghijklmnopqrstuvwxyz";
@@ -42,9 +49,9 @@ export default function PasswordProvider({ children }) {
     let charPool = "";
     let pass = "";
 
-    // Adding char to charPool according to selected parameter
-    // Ensure that each category has at least one character if selected
     if (upperCaseActive) {
+      // Adding char to charPool according to selected parameter
+      // Ensure that each category has at least one character if selected
       charPool += uppercase;
       pass += uppercase[Math.trunc(Math.random() * uppercase.length)];
     }
@@ -65,22 +72,22 @@ export default function PasswordProvider({ children }) {
     }
 
     // if Req. password length is less than generated password length then trim password to meet require requirement.
+    if (passwordLength <= pass.length) {
+      pass = shuffelPassword(pass);
+      pass = pass.slice(0, passwordLength);
+      setPassword(pass);
+
+      return;
+    }
 
     // filling rest of password length;
     for (let i = pass.length; i < passwordLength; i++) {
       pass += charPool[Math.trunc(Math.random() * charPool.length)];
     }
 
+    pass = shuffelPassword(pass);
     setPassword(pass);
   };
-
-  console.log(
-    passwordLength,
-    upperCaseActive,
-    lowerCaseActive,
-    numberActive,
-    symbolActive
-  );
 
   return (
     <PasswordContext.Provider

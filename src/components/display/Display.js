@@ -13,7 +13,7 @@ export default function Display() {
 
   return (
     <div className={styles.displayContainer}>
-      {password.length === "" ? (
+      {password.length === 0 ? (
         <p className={`heading-medium ${styles.empty}`}></p>
       ) : (
         <p className="heading-medium">{password}</p>
