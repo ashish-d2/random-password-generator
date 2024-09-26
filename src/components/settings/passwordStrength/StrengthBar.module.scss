@@ -1,0 +1,38 @@
+@use "./../../../variables" as vars;
+
+.figure {
+  height: 28px;
+
+  span {
+    display: inline-block;
+    width: 10px;
+    height: 100%;
+    border: 2px solid vars.$almost-white;
+    background-color: inherit;
+    margin-right: 0.5em;
+  }
+
+  span:last-child {
+    margin-right: 0;
+  }
+}
+
+.tooWeak {
+  border: none !important;
+  background-color: vars.$red !important;
+}
+
+.weak {
+  border: none !important;
+  background-color: vars.$orange !important;
+}
+
+.medium {
+  border: none !important;
+  background-color: vars.$yellow !important;
+}
+
+.strong {
+  border: none !important;
+  background-color: vars.$neon-green !important;
+}

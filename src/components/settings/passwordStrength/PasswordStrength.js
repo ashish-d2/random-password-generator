@@ -1,4 +1,5 @@
 import styles from "./PasswordStrrength.module.scss";
+import StrengthBar from "./StrengthBar";
 
 export default function PasswordStrrength() {
   return (
@@ -6,12 +7,7 @@ export default function PasswordStrrength() {
       <p className={styles.strength}>Strength</p>
       <div className={styles.strengthContainer}>
         <p className={`normal-text ${styles.actualStrength}`}>Medium</p>
-        <p className={styles.figure}>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </p>
+        <StrengthBar />
       </div>
     </div>
   );

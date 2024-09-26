@@ -8,7 +8,7 @@ export default function PasswordProvider({ children }) {
   const [lowerCaseActive, setLowerCaseActive] = useState(false);
   const [numberActive, setNumberActive] = useState(false);
   const [symbolActive, setSymbolActive] = useState(false);
-  const [strengthIndicator, setStrengthIndicator] = useState(null);
+  const [strengthIndicator, setStrengthIndicator] = useState(0);
 
   const handleChangeOnCheckBoxClick = function (id) {
     switch (id) {
@@ -144,6 +144,7 @@ export default function PasswordProvider({ children }) {
         handlePasswordLengthChange,
         generatePassword,
         password,
+        strengthIndicator,
       }}
     >
       {children}
