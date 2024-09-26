@@ -8,12 +8,12 @@ export default function PasswordProvider({ children }) {
   const [lowerCaseActive, setLowerCaseActive] = useState(false);
   const [numberActive, setNumberActive] = useState(false);
   const [symbolActive, setSymbolActive] = useState(false);
+  const [strengthIndicator, setStrengthIndicator] = useState(null);
 
   const handleChangeOnCheckBoxClick = function (id) {
     switch (id) {
       case 1:
         setUpperCaseActive((prevValue) => !prevValue);
-        console.log(upperCaseActive);
         break;
       case 2:
         setLowerCaseActive(!lowerCaseActive);
@@ -75,6 +75,13 @@ export default function PasswordProvider({ children }) {
     if (passwordLength <= pass.length) {
       pass = shuffelPassword(pass);
       pass = pass.slice(0, passwordLength);
+      strengthCalculator(
+        passwordLength,
+        upperCaseActive,
+        lowerCaseActive,
+        numberActive,
+        symbolActive
+      );
       setPassword(pass);
 
       return;
@@ -86,7 +93,43 @@ export default function PasswordProvider({ children }) {
     }
 
     pass = shuffelPassword(pass);
+    strengthCalculator(
+      passwordLength,
+      upperCaseActive,
+      lowerCaseActive,
+      numberActive,
+      symbolActive
+    );
     setPassword(pass);
+  };
+
+  const strengthCalculator = function (len, uc, lc, num, spl) {
+    console.log("strength");
+    let strength = 0;
+
+    if (uc) strength++;
+    if (lc) strength++;
+    if (num) strength++;
+    if (spl) strength++;
+
+    if (len < 6) {
+      strength = 1;
+    }
+
+    if (len >= 6 && len < 8) {
+      console.log("weak");
+      if (strength <= 3) strength--;
+      else strength -= 2;
+    }
+
+    if (len >= 8 && len < 12 && strength <= 4) strength--;
+
+    if (strength === 0) {
+      strength = 1;
+    }
+
+    console.log(strength, len);
+    setStrengthIndicator(strength);
   };
 
   return (

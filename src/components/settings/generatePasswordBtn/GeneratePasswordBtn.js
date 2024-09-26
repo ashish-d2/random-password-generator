@@ -5,6 +5,7 @@ import PasswordContext from "../../../context/PasswordContext";
 
 export default function GeneratePasswordBtn() {
   const {
+    passwordLength,
     generatePassword,
     upperCaseActive,
     lowerCaseActive,
@@ -13,6 +14,10 @@ export default function GeneratePasswordBtn() {
   } = useContext(PasswordContext);
 
   const handlePasswordGenerateBtn = function () {
+    if (passwordLength === 0) {
+      return;
+    }
+
     if (
       !upperCaseActive &&
       !lowerCaseActive &&

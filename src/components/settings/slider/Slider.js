@@ -13,7 +13,7 @@ export default function Slider({ sliderValue, onSliderValueChange }) {
         max="20"
         value={sliderValue}
         step="1"
-        onChange={(event) => onSliderValueChange(event.target.value)}
+        onChange={(event) => onSliderValueChange(+event.target.value)}
         className={styles.slider}
         style={{
           background: `linear-gradient(to right, #A4FFAF ${
