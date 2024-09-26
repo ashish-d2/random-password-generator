@@ -11,7 +11,7 @@ export default function StrengthBar() {
     { id: 4, message: "Strong", indicatorStyle: "strong" },
   ];
 
-  let displayMessage = -1;
+  let displayMessage = "";
   let displayStyle = -1;
 
   if (strengthIndicator) {
@@ -21,19 +21,22 @@ export default function StrengthBar() {
 
   console.log(strengthIndicator, displayStyle);
   return (
-    <p className={styles.figure}>
-      <span
-        className={strengthIndicator >= 1 ? styles[displayStyle] : ""}
-      ></span>
-      <span
-        className={strengthIndicator >= 2 ? styles[displayStyle] : ""}
-      ></span>
-      <span
-        className={strengthIndicator >= 3 ? styles[displayStyle] : ""}
-      ></span>
-      <span
-        className={strengthIndicator >= 4 ? styles[displayStyle] : ""}
-      ></span>
-    </p>
+    <>
+      <p className={`normal-text ${styles.actualStrength}`}>{displayMessage}</p>
+      <p className={styles.figure}>
+        <span
+          className={strengthIndicator >= 1 ? styles[displayStyle] : ""}
+        ></span>
+        <span
+          className={strengthIndicator >= 2 ? styles[displayStyle] : ""}
+        ></span>
+        <span
+          className={strengthIndicator >= 3 ? styles[displayStyle] : ""}
+        ></span>
+        <span
+          className={strengthIndicator >= 4 ? styles[displayStyle] : ""}
+        ></span>
+      </p>
+    </>
   );
 }

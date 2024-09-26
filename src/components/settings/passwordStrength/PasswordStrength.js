@@ -6,7 +6,6 @@ export default function PasswordStrrength() {
     <div className={styles.passwordStrengthContainer}>
       <p className={styles.strength}>Strength</p>
       <div className={styles.strengthContainer}>
-        <p className={`normal-text ${styles.actualStrength}`}>Medium</p>
         <StrengthBar />
       </div>
     </div>

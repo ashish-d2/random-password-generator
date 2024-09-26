@@ -1,5 +1,10 @@
 @use "./../../../variables" as vars;
 
+.actualStrength {
+  color: vars.$almost-white;
+  text-transform: uppercase;
+}
+
 .figure {
   height: 28px;
 
