@@ -9,6 +9,7 @@ export default function PasswordProvider({ children }) {
   const [numberActive, setNumberActive] = useState(false);
   const [symbolActive, setSymbolActive] = useState(false);
   const [strengthIndicator, setStrengthIndicator] = useState(0);
+  const [passwordIsGenerated, setPasswordIsGenerated] = useState(false);
 
   const handleChangeOnCheckBoxClick = function (id) {
     switch (id) {
@@ -83,6 +84,7 @@ export default function PasswordProvider({ children }) {
         symbolActive
       );
       setPassword(pass);
+      setPasswordIsGenerated(true);
 
       return;
     }
@@ -101,6 +103,7 @@ export default function PasswordProvider({ children }) {
       symbolActive
     );
     setPassword(pass);
+    setPasswordIsGenerated(true);
   };
 
   const strengthCalculator = function (len, uc, lc, num, spl) {
@@ -145,6 +148,7 @@ export default function PasswordProvider({ children }) {
         generatePassword,
         password,
         strengthIndicator,
+        passwordIsGenerated,
       }}
     >
       {children}

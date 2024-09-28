@@ -5,13 +5,15 @@ import PasswordContext from "../../context/PasswordContext";
 import CopyContext from "../../context/CopyContext";
 
 export default function Display() {
-  const { password } = useContext(PasswordContext);
+  const { password, passwordIsGenerated } = useContext(PasswordContext);
   const { copyToClipboard } = useContext(CopyContext);
   const [copyBtnActive, setCopyBtnActive] = useState(false);
 
   const handleCopyBtnClick = function (password) {
-    copyToClipboard(password);
-    setCopyBtnActive(true);
+    if (passwordIsGenerated) {
+      copyToClipboard(password);
+      setCopyBtnActive(true);
+    }
   };
 
   return (
