@@ -1,19 +1,17 @@
 import styles from "./Display.module.scss";
 import { ReactComponent as CopyIcon } from "./../../assets/images/icon-copy.svg";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import PasswordContext from "../../context/PasswordContext";
 import CopyContext from "../../context/CopyContext";
 
 export default function Display() {
-  const { password, passwordIsGenerated } = useContext(PasswordContext);
+  const { password, copyBtnActive, handleCopyBtnClick } =
+    useContext(PasswordContext);
   const { copyToClipboard } = useContext(CopyContext);
-  const [copyBtnActive, setCopyBtnActive] = useState(false);
 
-  const handleCopyBtnClick = function (password) {
-    if (passwordIsGenerated) {
-      copyToClipboard(password);
-      setCopyBtnActive(true);
-    }
+  const handleClick = function (password) {
+    copyToClipboard(password);
+    handleCopyBtnClick();
   };
 
   return (
@@ -28,7 +26,7 @@ export default function Display() {
 
         <CopyIcon
           className={styles.copyIcon}
-          onClick={() => handleCopyBtnClick(password)}
+          onClick={() => handleClick(password)}
         />
       </div>
     </div>

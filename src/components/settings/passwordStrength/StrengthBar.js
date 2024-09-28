@@ -19,7 +19,6 @@ export default function StrengthBar() {
     displayStyle = indicator[strengthIndicator - 1].indicatorStyle;
   }
 
-  console.log(strengthIndicator, displayStyle);
   return (
     <>
       <p className={`normal-text ${styles.actualStrength}`}>{displayMessage}</p>

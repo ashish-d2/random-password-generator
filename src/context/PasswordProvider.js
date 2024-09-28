@@ -9,7 +9,20 @@ export default function PasswordProvider({ children }) {
   const [numberActive, setNumberActive] = useState(false);
   const [symbolActive, setSymbolActive] = useState(false);
   const [strengthIndicator, setStrengthIndicator] = useState(0);
-  const [passwordIsGenerated, setPasswordIsGenerated] = useState(false);
+  const [copyBtnEnable, setCopyBtnEnable] = useState(false);
+  const [copyBtnActive, setCopyBtnActive] = useState(false);
+
+  const handleCopyBtnClick = function () {
+    if (copyBtnEnable) {
+      setCopyBtnActive(true);
+    }
+  };
+
+  const resetCopyBtn = function () {
+    if (copyBtnActive) {
+      setCopyBtnActive(false);
+    }
+  };
 
   const handleChangeOnCheckBoxClick = function (id) {
     switch (id) {
@@ -84,7 +97,8 @@ export default function PasswordProvider({ children }) {
         symbolActive
       );
       setPassword(pass);
-      setPasswordIsGenerated(true);
+      setCopyBtnEnable(true);
+      resetCopyBtn();
 
       return;
     }
@@ -103,11 +117,11 @@ export default function PasswordProvider({ children }) {
       symbolActive
     );
     setPassword(pass);
-    setPasswordIsGenerated(true);
+    setCopyBtnEnable(true);
+    resetCopyBtn();
   };
 
   const strengthCalculator = function (len, uc, lc, num, spl) {
-    console.log("strength");
     let strength = 0;
 
     if (uc) strength++;
@@ -120,7 +134,6 @@ export default function PasswordProvider({ children }) {
     }
 
     if (len >= 6 && len < 8) {
-      console.log("weak");
       if (strength <= 3) strength--;
       else strength -= 2;
     }
@@ -131,7 +144,6 @@ export default function PasswordProvider({ children }) {
       strength = 1;
     }
 
-    console.log(strength, len);
     setStrengthIndicator(strength);
   };
 
@@ -148,7 +160,9 @@ export default function PasswordProvider({ children }) {
         generatePassword,
         password,
         strengthIndicator,
-        passwordIsGenerated,
+        copyBtnEnable,
+        copyBtnActive,
+        handleCopyBtnClick,
       }}
     >
       {children}
