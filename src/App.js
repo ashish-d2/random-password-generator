@@ -3,6 +3,7 @@ import Heading from "./components/heading/Heading";
 import Display from "./components/display/Display";
 import Settings from "./components/settings/Settings";
 import PasswordProvider from "./context/PasswordProvider";
+import CopyProvider from "./context/CopyProvider";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
       <main>
         <PasswordProvider>
           <Heading />
-          <Display />
+          <CopyProvider>
+            <Display />
+          </CopyProvider>
           <Settings />
         </PasswordProvider>
       </main>
