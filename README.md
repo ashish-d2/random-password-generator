@@ -2,6 +2,10 @@
 
 A simple and customizable random password generator built with React that allows users to generate strong, secure passwords by adjusting various parameters such as length, uppercase, lowercase, symbols, and special characters.
 
+## 🌐 Live Demo
+
+You can view the live version of the app here: [Live Demo](https://random-password-generator-dj2h0j286-ashish-d2s-projects.vercel.app/)
+
 ## 🖼️ Screenshots
 
 Here's what the app looks like:
